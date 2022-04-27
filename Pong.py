@@ -38,7 +38,40 @@ ball.goto(0, 0)
 ball.dx = 0.1
 ball.dy = -0.1
 
+# Functions
 
+def paddle_a_up():
+    y = paddle_a.ycor()  # Call the y cordnaite
+    y += 20  # Add 20 to the y cordnaite
+    paddle_a.sety(y)  # Set the paddle of the y to the new y cordnaite
+
+
+def paddle_a_down():
+    y = paddle_a.ycor()
+    y -= 20
+    paddle_a.sety(y)
+
+
+def paddle_b_up():
+    y = paddle_b.ycor()
+    y += 20
+    paddle_b.sety(y)
+
+
+def paddle_b_down():
+    y = paddle_b.ycor()
+    y -= 20
+    paddle_b.sety(y)
+
+
+# Keyboard binding
+window.listen()  # Listen to keyboard input
+
+# When the user presses W call the function paddle_a_up
+window.onkeypress(paddle_a_up, "w")
+window.onkeypress(paddle_a_down, "s")
+window.onkeypress(paddle_b_up, "Up")
+window.onkeypress(paddle_b_down, "Down")
 
 while True:
     window.update()
