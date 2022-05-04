@@ -1,5 +1,6 @@
 # Importing turtle module
 import turtle
+import winsound
 
 window = turtle.Screen()
 window.title("Pong by @YounisCode")
@@ -55,7 +56,6 @@ pen.write("Player A: 0 Player B: 0", align="center",font=("Courier", 24, "normal
 
 # Functions
 
-
 def paddle_a_up():
     y = paddle_a.ycor()  # Call the y cordnaite
     y += 20  # Add 20 to the y cordnaite
@@ -100,6 +100,7 @@ while True:
     if ball.ycor() > 290:  # Top Border
         ball.sety(290)
         ball.dy *= -1
+        winsound.PlaySound("wallBounceSound", winsound.SND_ASYNC)
 
     if ball.ycor() < -290:  # Bottom Border
         ball.sety(-290)
